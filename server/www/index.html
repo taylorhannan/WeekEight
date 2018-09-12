@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title>index</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#addproduct').on('submit', function(event) {
+        event.preventDefault();
+
+        let formdata ={
+          test:'test';
+        }
+
+        $.ajax({
+          type: "POST",
+          contentType: "application/json",
+          url: window.location + "/routes/add",
+          data: JSON.stringify(formdata),
+          datatype: "JSON",
+          success: function(result){
+            if (success == true){
+              alert("success");
+            }else{
+              alert("fail");
+            }
+          },
+          error: function(){
+            alert("error");
+          }
+        });
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <h1>Week Eight Lab</h1>
+
+  <h3>Database</h3>
+  list database here
+
+  <br>
+
+  <h3>CRUD Options</h3>
+
+  <br>
+
+  <h4>Add Product to Database</h4>
+    <form id="addproduct">
+      <button type="submit" value="Add">Submit</button>
+    </form>
+
+  <br>
+
+  <h4>Remove Item to Database</h4>
+  form etc
+
+
+</body>
+</html>
